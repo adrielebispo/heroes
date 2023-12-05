@@ -1,13 +1,10 @@
 import {Component} from '@angular/core';
-import {
-  NgIf,
-  NgFor,
-  UpperCasePipe,
-} from '@angular/common';
+import { NgFor, UpperCasePipe } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 import {Hero} from '../hero';
 import {HEROES} from '../mock-heroes';
+import {HeroDetailComponent} from '../hero-detail/hero-detail.component';
 
 @Component({
   standalone: true,
@@ -15,8 +12,8 @@ import {HEROES} from '../mock-heroes';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss'],
   imports: [
+    HeroDetailComponent,
     FormsModule,
-    NgIf,
     NgFor,
     UpperCasePipe,
   ],
@@ -24,6 +21,7 @@ import {HEROES} from '../mock-heroes';
 
 export class HeroesComponent {
   heroes = HEROES;
+
   selectedHero?: Hero;
 
   onSelect(hero: Hero): void {
